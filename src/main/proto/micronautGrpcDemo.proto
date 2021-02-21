@@ -5,10 +5,17 @@ option java_package = "com.mateuspada";
 option java_outer_classname = "MicronautGrpcDemo";
 option objc_class_prefix = "HLW";
 
+import "google/api/annotations.proto";
+
 package com.mateuspada;
 
 service MicronautGrpcDemoService {
-  rpc send (MicronautGrpcDemoRequest) returns (MicronautGrpcDemoReply) {}
+  rpc getDemo (MicronautGrpcDemoRequest) returns (MicronautGrpcDemoReply) {
+    option (google.api.http) = {
+      get: "/demo"
+      body: "*"
+    };
+  }
 }
 
 message MicronautGrpcDemoRequest {

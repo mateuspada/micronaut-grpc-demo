@@ -1,4 +1,4 @@
-package com.mateuspada
+package com.mateuspada.application
 
 import io.micronaut.runtime.EmbeddedApplication
 import io.micronaut.test.extensions.spock.annotation.MicronautTest

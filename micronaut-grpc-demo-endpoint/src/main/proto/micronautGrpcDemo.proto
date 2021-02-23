@@ -1,13 +1,13 @@
 syntax = "proto3";
 
 option java_multiple_files = true;
-option java_package = "com.mateuspada";
+option java_package = "com.mateuspada.endpoint";
 option java_outer_classname = "MicronautGrpcDemo";
 option objc_class_prefix = "HLW";
 
 import "google/api/annotations.proto";
 
-package com.mateuspada;
+package com.mateuspada.endpoint;
 
 service MicronautGrpcDemoService {
   rpc getDemo (MicronautGrpcDemoRequest) returns (MicronautGrpcDemoReply) {

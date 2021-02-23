@@ -2,5 +2,5 @@ applicationType: grpc
 defaultPackage: com.mateuspada
 testFramework: spock
 sourceLanguage: kotlin
-buildTool: gradle
+buildTool: gradle_kotlin
 features: [annotation-api, app-name, gradle, grpc, kotlin, kotlin-application, logback, readme, shade, spock, yaml]

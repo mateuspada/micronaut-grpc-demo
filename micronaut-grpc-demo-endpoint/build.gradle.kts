@@ -19,11 +19,10 @@ micronaut {
 }
 
 dependencies {
-    kapt(platform(project(":micronaut-grpc-demo-dependencies")))
     kapt("io.micronaut:micronaut-inject-java")
 
     api("io.micronaut.grpc:micronaut-grpc-runtime")
-    api("io.grpc:grpc-kotlin-stub:$grpcKotlinVersion")
+    api("io.grpc:grpc-kotlin-stub")
 
     testAnnotationProcessor("io.micronaut:micronaut-inject-java")
     testAnnotationProcessor("io.micronaut:micronaut-validation")

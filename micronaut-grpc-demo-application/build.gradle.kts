@@ -5,7 +5,7 @@ plugins {
 
 val micronautVersion: String by project
 
- micronaut {
+micronaut {
     runtime("netty")
     testRuntime("spock2")
     processing {
@@ -15,7 +15,6 @@ val micronautVersion: String by project
 }
 
 dependencies {
-    kapt(platform(project(":micronaut-grpc-demo-dependencies")))
     kapt("io.micronaut:micronaut-inject-java")
     api(project(":micronaut-grpc-demo-endpoint"))
 

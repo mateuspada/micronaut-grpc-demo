@@ -10,14 +10,7 @@ val grpcVersion: String by project
 val grpcKotlinVersion: String by project
 
 dependencies {
-    kapt("io.micronaut:micronaut-inject-java")
-
-    api("io.micronaut.grpc:micronaut-grpc-runtime")
     api("io.grpc:grpc-kotlin-stub")
-
-    testAnnotationProcessor("io.micronaut:micronaut-inject-java")
-    testAnnotationProcessor("io.micronaut:micronaut-validation")
-    testImplementation("io.micronaut:micronaut-inject-java")
 }
 
 sourceSets {

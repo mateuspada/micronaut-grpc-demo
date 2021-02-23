@@ -62,6 +62,14 @@ subprojects {
             kapt(platform("io.micronaut:micronaut-bom:$micronautVersion"))
             kapt(kotlin("stdlib", kotlinVersion))
 
+            kapt("io.micronaut:micronaut-inject-java")
+            testApi("io.micronaut:micronaut-inject-java")
+
+            testApi("io.micronaut.test:micronaut-test-spock")
+            testApi("org.spockframework:spock-core") {
+                exclude(group = "org.codehaus.groovy", module = "groovy-all")
+            }
+
             constraints {
                 api("io.micronaut.grpc:micronaut-grpc-runtime:2.3.0")
 
@@ -70,7 +78,6 @@ subprojects {
 
                 api("io.grpc:grpc-kotlin-stub:$grpcKotlinVersion")
                 api("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.2")
-                api("com.amazonaws:aws-java-sdk-core:1.11.959")
 
                 api("org.apache.maven:maven-core:3.6.3")
             }
@@ -99,7 +106,6 @@ subprojects {
 
     apply{
         micronaut {
-            runtime("netty")
             testRuntime("spock2")
             processing {
                 incremental(true)

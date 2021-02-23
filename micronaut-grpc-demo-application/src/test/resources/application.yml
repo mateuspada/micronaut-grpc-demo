@@ -1,0 +1,3 @@
+micronaut.application.name: micronautGrpcDemo
+
+message: "Teste de mensagem do"

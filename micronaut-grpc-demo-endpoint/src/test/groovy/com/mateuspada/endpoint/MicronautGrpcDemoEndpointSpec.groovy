@@ -1,6 +1,6 @@
 package com.mateuspada.endpoint
 
-
+import io.micronaut.context.annotation.Property
 import io.micronaut.test.extensions.spock.annotation.MicronautTest
 import kotlin.coroutines.Continuation
 import spock.lang.Specification
@@ -8,6 +8,7 @@ import spock.lang.Specification
 import javax.inject.Inject
 
 @MicronautTest
+@Property(name = "message", value = "Olá")
 class MicronautGrpcDemoEndpointSpec extends Specification {
 
     @Inject
@@ -18,7 +19,7 @@ class MicronautGrpcDemoEndpointSpec extends Specification {
         def response = micronautGrpcDemoEndpoint.getDemo(getMicronautRequest(), _ as Continuation) as MicronautGrpcDemoReply
 
         then:
-        response.getMessage() == "Teste de mensagem do Mateus"
+        response.getMessage() == "Olá Mateus"
     }
 
     MicronautGrpcDemoRequest getMicronautRequest() {

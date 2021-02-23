@@ -36,7 +36,9 @@ dependencies {
 
 subprojects {
 
-    if (this.name == "micronaut-grpc-demo-application") {
+    val submoduleName = this.name.removePrefix("micronaut-grpc-demo-")
+
+    if (submoduleName == "application") {
         apply {
             plugin("io.micronaut.application")
         }
@@ -51,6 +53,7 @@ subprojects {
         plugin("org.jetbrains.kotlin.jvm")
         plugin("org.jetbrains.kotlin.kapt")
         plugin("org.jetbrains.kotlin.plugin.allopen")
+        plugin("groovy")
     }
 
     // add dependencies
@@ -70,6 +73,37 @@ subprojects {
                 api("com.amazonaws:aws-java-sdk-core:1.11.959")
 
                 api("org.apache.maven:maven-core:3.6.3")
+            }
+        }
+    }
+
+    apply{
+        java {
+            sourceCompatibility = JavaVersion.toVersion("11")
+        }
+
+        tasks {
+            compileKotlin {
+                kotlinOptions {
+                    jvmTarget = "11"
+                }
+            }
+
+            compileTestKotlin {
+                kotlinOptions {
+                    jvmTarget = "11"
+                }
+            }
+        }
+    }
+
+    apply{
+        micronaut {
+            runtime("netty")
+            testRuntime("spock2")
+            processing {
+                incremental(true)
+                annotations( "com.mateuspada.$submoduleName.*")
             }
         }
     }

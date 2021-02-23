@@ -1,17 +1,5 @@
 plugins {
     kotlin("jvm")
-    id("groovy")
-}
-
-val micronautVersion: String by project
-
-micronaut {
-    runtime("netty")
-    testRuntime("spock2")
-    processing {
-        incremental(true)
-        annotations("com.mateuspada.application.*")
-    }
 }
 
 dependencies {
@@ -27,22 +15,4 @@ dependencies {
 
 application {
     mainClass.set("com.mateuspada.application.ApplicationKt")
-}
-
-java {
-    sourceCompatibility = JavaVersion.toVersion("11")
-}
-
-tasks {
-    compileKotlin {
-        kotlinOptions {
-            jvmTarget = "11"
-        }
-    }
-
-    compileTestKotlin {
-        kotlinOptions {
-            jvmTarget = "11"
-        }
-    }
 }

@@ -9,15 +9,6 @@ val protocVersion: String by project
 val grpcVersion: String by project
 val grpcKotlinVersion: String by project
 
-micronaut {
-    runtime("netty")
-    testRuntime("spock2")
-    processing {
-        incremental(true)
-        annotations("com.mateuspada.endpoint.*")
-    }
-}
-
 dependencies {
     kapt("io.micronaut:micronaut-inject-java")
 
